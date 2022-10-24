@@ -22,6 +22,6 @@ class ExercisesController < ApplicationController
     # 【要件】一番お金を使っている顧客を返すこと
     #   * joinsを使うこと
     #   * 取得したCustomerのインスタンスにfoods_price_sumと呼びかけると合計金額を返すこと
-    @customer = Customer.joins(orders: :foods).select("customers.*, SUM(foods.price) AS foods_price_sum").group("customers.id").order("foods_price_sum DESC").first
+    @customer = Customer.joins(orders: :foods).select("customers.*, SUM(foods.price) as foods_price_sum").group("customers.id").order("foods_price_sum DESC").first
   end
 end
